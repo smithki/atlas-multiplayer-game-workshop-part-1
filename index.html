@@ -25,6 +25,15 @@
         transform: translate(-50%, -50%);
       }
 
+      #game-over {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: bold;
+        font-size: 2rem;
+      }
+
       canvas {
         background-color: beige;
       }
@@ -35,6 +44,7 @@
   <body>
     <div class="game-elements">
       <canvas id="game-canvas" width="760" height="500"></canvas>
+      <div id="game-over"></div>
     </div>
   </body>
 </html>

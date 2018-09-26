@@ -4,6 +4,7 @@ class GameManager {
     this.canvas = document.getElementById('game-canvas')
     this.context = this.canvas.getContext('2d');
     this.prevTime = 0;
+    this.isGameOver = false;
 
     // Initialize snek stuff
     this.sneks = [];
@@ -59,7 +60,7 @@ class GameManager {
 
     // Update all children with delta time (if necessary)
     this.draw();
-    requestAnimationFrame(this.update.bind(this));
+    if (!this.isGameOver) requestAnimationFrame(this.update.bind(this));
   }
 
   spawnMunchie() {
@@ -120,7 +121,7 @@ class GameManager {
       if (index !== otherIndex) {
         otherSnek.segmentPositions.forEach(position => {
           if (headPosition.x === position.x && headPosition.y === position.y) {
-            console.log(snek);
+            this.isGameOver = true;
           }
         });
       }
@@ -151,6 +152,11 @@ class GameManager {
     this.sneks.forEach(snek => {
       snek.draw(this.context);
     });
+
+    if (this.isGameOver) {
+      const gameOverDiv = document.getElementById('game-over');
+      gameOverDiv.innerHTML = 'Game over!';
+    }
 
     this.munchies.forEach(this.drawMunchie.bind(this));
   }
