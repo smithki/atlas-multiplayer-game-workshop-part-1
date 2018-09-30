@@ -7,6 +7,7 @@ class Snek {
     this.worldWidth = worldWidth;
     this.worldHeight = worldHeight;
     this.color = color;
+    this.isDead = false;
   }
 
   update() {
