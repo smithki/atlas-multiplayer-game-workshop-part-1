@@ -78,7 +78,7 @@ class GameManager {
       }
 
       this.munchieCounter += deltaTime;
-      if (this.munchieCounter >= this.munchieWindow) {
+      if (this.munchies.length < 10 && this.munchieCounter >= this.munchieWindow) {
         this.spawnMunchie();
         this.munchieCounter = 0;
       }
