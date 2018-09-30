@@ -6,10 +6,10 @@ const KEYS = {
   DOWN: 40,
 
   // W, A, S, D keys
-  A: 65,
   W: 87,
-  D: 68,
+  A: 65,
   S: 83,
+  D: 68,
 
   // Other keys
   SPACE: 32,
